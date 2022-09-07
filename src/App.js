@@ -4,7 +4,7 @@ import Notes from "./Components/Notes";
 function App() {
   return (
     <div>
-           <Clock/>
+           {/* <Clock/> */}
            <Notes/>
     </div>
   );
