@@ -1,42 +1,66 @@
 import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
+import { Button } from '@mui/material';
+import TextField from '@mui/material/TextField';
 
 function Notes() {
 
 
-const notesAr = [
-    {status: false, task: "Duschen"},
-    {status: false, task: "Kochen"},
-    {status: true, task: "Einkaufen"}
-];
+  const notesAr = [
+    { id: 1, status: false, task: "Duschen" },
+    { id: 2, status: false, task: "Kochen" },
+    { id: 3, status: true, task: "Einkaufen" }
+  ];
 
 
-const [array, setStatus] = useState(notesAr);
+  const [array, setStatus] = useState(notesAr);
 
+  const [inputs, setInputs] = useState('');
 
 
   const updateState = index => {
-    let newArr = [...array]; 
-    newArr[index].status = !newArr[index].status;   
-    setStatus(newArr);
 
+    let newArr = [...array];
+
+    for (let i = 0; i < newArr.length; i++) {
+      if (index.id === newArr.at(i).id) {
+        newArr.at(i).status = !newArr.at(i).status;
+      }
+    }
+
+    setStatus(newArr);
   };
 
 
 
-  return  (
+
+  return (
+
 
     <div>
-        <Checkbox checked={array.at(0).status} onChange={() => updateState(0)} />
-        <b> {array.at(0).task}</b>
-        <Checkbox checked={array.at(1).status} onChange={() => updateState(1)} />  
-        <b> {array.at(1).task}</b>
-        <Checkbox checked={array.at(2).status} onChange={() => updateState(2)} />  
-        <b> {array.at(2).task}</b>  
+
+      {array.map((index) => {
+        return (
+
+          <div key={index.id}>
+
+            <Checkbox checked={index.status} onChange={() => updateState(index)} />
+            <b> {index.task}</b>
+
+          </div>
+
+        );
+      })}
+
+      <Button variant="outlined" > Add </Button>
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" value={inputs} />
+
     </div>
-  )
+
+
+  );
 }
 
 
-export default Notes
+export default Notes;
