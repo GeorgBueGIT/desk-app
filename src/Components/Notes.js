@@ -1,8 +1,7 @@
 import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
-import { Button } from '@mui/material';
-import TextField from '@mui/material/TextField';
+import Input from '@mui/material/Input';
 
 function Notes() {
 
@@ -15,8 +14,8 @@ function Notes() {
 
 
   const [array, setStatus] = useState(notesAr);
+  const [textInput, setTextinput] = useState("");
 
-  const [inputs, setInputs] = useState('');
 
 
   const updateState = index => {
@@ -28,11 +27,22 @@ function Notes() {
         newArr.at(i).status = !newArr.at(i).status;
       }
     }
-
     setStatus(newArr);
   };
 
 
+  const changeInput =(e) => {
+    setTextinput(e.target.value);
+  }
+
+
+
+const submitInput = () => {
+  const newArray = [...array, {id: 99, status: false, task: textInput}]
+  setStatus(newArray);
+  console.log(newArray)
+  return;
+}
 
 
   return (
@@ -52,9 +62,9 @@ function Notes() {
 
         );
       })}
-
-      <Button variant="outlined" > Add </Button>
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" value={inputs} />
+      <form  onSubmit={submitInput}> 
+      <Input id="outlined-basic" label="New Task" variant="outlined" type='text' onChange={changeInput} />
+      </form>
 
     </div>
 
