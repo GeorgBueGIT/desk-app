@@ -1,4 +1,28 @@
 
+Anforderungen:
+
+- Startseite von Google Chrome Desktop Version
+- WebApp
+- Mobile Version für Iphone 13 mini
+- Google Suche soll direkt in der Seite möglich sein, damit man keinen neuen Tab öffnen muss um zu googlen
+- Kalender
+- Todo
+- Login zur Sicherheit meiner Daten
+- Todo
+- Uhrzeit (Optional eher für Visuelle Aspekte)
+- Quicklinks durch Symbole (dynamisch erweiterbar)
+- Connection zwischen meinem Kalender und Iphone Kalender möglich?
+
+
+
+Personas:
+
+Ich 
+
+
+
+
+
 Todo:
 
 - Google Suche (Mitte)
