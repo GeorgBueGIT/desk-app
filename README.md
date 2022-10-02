@@ -12,7 +12,8 @@ Anforderungen:
 - Uhrzeit (Optional eher für Visuelle Aspekte)
 - Quicklinks durch Symbole (dynamisch erweiterbar)
 - Connection zwischen meinem Kalender und Iphone Kalender möglich?
-
+- Dynamischer Hintergrund zur Tageszeit
+- Hintergrund leichter Farbverlauf, ähnliche farbe zu Modulen dass sich cool abhebt (IOS/Spotify als Vorlage)
 
 
 Personas:
