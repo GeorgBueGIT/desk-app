@@ -8,14 +8,14 @@ import Quicklinks from "./Components/Quicklinks";
 function App() {
 
   return (
-    <div style={{ backgroundImage: `url(${background})` , height: "100vh" }}>
+    <div >
         
-           {/* <Login/>   */}
+           <Login/>  
             {/* <Clock/>
             
            <Notes/> */}
-           {/* <GoogleSearch/> */}
-           <Quicklinks/>
+           {/* <GoogleSearch/>
+           <Quicklinks/> */}
     </div>
   );
 }

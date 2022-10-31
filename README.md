@@ -38,3 +38,8 @@ Todo:
 - Kurzes Guten Tag/ Abend + Name 
 - Mobile Version
 - Datenbank
+
+
+
+
+Repsponsiveness später nachholen, erst mal gehts um mich
