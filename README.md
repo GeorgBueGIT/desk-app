@@ -32,6 +32,7 @@ Todo:
 - Visualisierung Tageszeit (vlt durch hintergrund)
 - Notizen
 - Quick links durch Logos
+- Langfristige ToDos
 
 
 - Login (Speichern von Cookies, möglichst selten einlogen)
@@ -39,7 +40,7 @@ Todo:
 - Mobile Version
 - Datenbank
 
-
+- Drag n Drop Task von Todos in Kalender?
 
 
 Repsponsiveness später nachholen, erst mal gehts um mich

@@ -1,21 +1,12 @@
-import Clock from "./Components/Clock";
-import Notes from "./Components/Notes";
-import background from "./Media/back.png";
-import Login from "./Components/Login";
-import GoogleSearch from "./Components/GoogleSearch";
-import Quicklinks from "./Components/Quicklinks";
+import Intro from "./Sites/Intro";
+import Main from "./Sites/Main";
+
 
 function App() {
 
   return (
     <div >
-        
-           <Login/>  
-            {/* <Clock/>
-            
-           <Notes/> */}
-           {/* <GoogleSearch/>
-           <Quicklinks/> */}
+          <Main/>
     </div>
   );
 }

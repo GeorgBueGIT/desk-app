@@ -2,6 +2,7 @@ import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import Input from '@mui/material/Input';
+import '../Styles/Notes.css';
 
 function Notes() {
 
@@ -48,8 +49,8 @@ const submitInput = () => {
   return (
 
 
-    <div>
-
+    <div className='around'>
+    <div className='tasks'>
       {array.map((index) => {
         return (
 
@@ -62,9 +63,12 @@ const submitInput = () => {
 
         );
       })}
+      </div>    
+      <div className='insertField'>
       <form  onSubmit={submitInput}> 
-      <Input id="outlined-basic" label="New Task" variant="outlined" type='text' onChange={changeInput} />
+      <Input id="outlined-basic" label="New Task" variant="outlined" type='text' onChange={changeInput} placeholder="Hinzufügen..." />
       </form>
+      </div>
 
     </div>
 
