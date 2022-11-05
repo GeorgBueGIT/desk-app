@@ -5,6 +5,7 @@
         width: 100vw;
         background-color: white;
         display: flex;
+        position: relative;
         align-items: center;
         justify-content: center;
     
@@ -15,6 +16,17 @@
         border-left:none;
         border-color: rgb(189, 189, 189);
 
-        box-shadow: 1px 0px 5px rgb(189, 189, 189);
+        /* box-shadow: 1px 0px 5px rgb(189, 189, 189); */
     
+}
+
+
+:hover.Menu{
+        color: #03a9f4;
+        font-size: xx-large;
+}
+
+.Menu{
+        position: absolute;
+        margin-left: 90vw;
 }

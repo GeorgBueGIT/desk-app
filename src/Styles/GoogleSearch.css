@@ -1,0 +1,20 @@
+
+.style {
+    border-radius: 10px;
+    border-width: 0px;
+    border-color: azure;
+    box-shadow: 1px 0px 5px rgb(189, 189, 189);
+    font-weight: bold;
+}
+
+.style2 {
+    border-radius: 10px;
+    border-width: 0px;
+    border-color: azure;
+    box-shadow: 1px 0px 5px rgb(189, 189, 189);
+    font-weight: bold;
+}
+
+.style2:hover{
+    box-shadow: 1px 0px 10px rgb(189, 189, 189);
+}

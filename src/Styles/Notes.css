@@ -14,6 +14,7 @@
     padding-bottom: 20px;
 
     box-shadow: 1px 1px 5px rgb(189, 189, 189);
+    padding-top: 10px;
 }
 
 .tasks{
@@ -23,4 +24,63 @@
 
 .insertField{
     padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.task{
+    border-style:solid;
+    border-width: 0px;
+    border-color: rgb(189, 189, 189);
+    border-radius: 15px;
+
+    box-shadow: 1px 1px 5px rgb(189, 189, 189);
+    width: 12vw;
+    height: 3vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.task:hover{
+    box-shadow: 1px 1px 10px rgb(189, 189, 189);
+}
+
+.together{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.spacer{
+    height: 10px;
+}
+
+.aroundson{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 20px;
+    padding-left: 20px;
+}
+.important{
+    background-color: #03a9f4;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    position: relative;  
+}
+
+.important:hover{
+    box-shadow: 1px 1px 5px rgb(189, 189, 189);
+}
+
+
+
+.taskText{
+    padding-left: 15px;
+    font-weight: 400;
+    user-select: none;
 }

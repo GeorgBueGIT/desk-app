@@ -4,70 +4,67 @@ import { useState } from 'react';
 import Input from '@mui/material/Input';
 import '../Styles/Notes.css';
 
+let index = 0;
+
 function Notes() {
 
 
-  const notesAr = [
-    { id: 1, status: false, task: "Duschen" },
-    { id: 2, status: false, task: "Kochen" },
-    { id: 3, status: true, task: "Einkaufen" }
-  ];
 
-
-  const [array, setStatus] = useState(notesAr);
+  const [array, setStatus] = useState([]);
   const [textInput, setTextinput] = useState("");
 
 
-
-  const updateState = index => {
-
-    let newArr = [...array];
-
-    for (let i = 0; i < newArr.length; i++) {
-      if (index.id === newArr.at(i).id) {
-        newArr.at(i).status = !newArr.at(i).status;
-      }
-    }
-    setStatus(newArr);
-  };
-
-
-  const changeInput =(e) => {
+  const changeInput = (e) => {
     setTextinput(e.target.value);
   }
 
+  const submitInput = (e) => {
+    e.preventDefault();
+    const newArray = [...array, { id: index, status: false, task: textInput }]
+    index++;
+    setTextinput('');
+    setStatus(newArray);
 
 
-const submitInput = () => {
-  const newArray = [...array, {id: 99, status: false, task: textInput}]
-  setStatus(newArray);
-  console.log(newArray)
-  return;
-}
+    return;
+  }
+
 
 
   return (
 
 
     <div className='around'>
-    <div className='tasks'>
-      {array.map((index) => {
-        return (
+      <div className='tasks'>
 
-          <div key={index.id}>
+        {/* Tasks */}
+        {array.map((index) => {
+          return (
+            <>
+              <div key={index.id} className='together'>
 
-            <Checkbox checked={index.status} onChange={() => updateState(index)} />
-            <b> {index.task}</b>
+                <div className='task'>
+                  <b className='taskText'>  {index.task}</b>
+                </div>
 
-          </div>
+              </div>
+              <div className='spacer'> </div>
 
-        );
-      })}
-      </div>    
+            </>
+          );
+        })}
+
+        {/* Add Tasks */}
+      </div>
       <div className='insertField'>
-      <form  onSubmit={submitInput}> 
-      <Input id="outlined-basic" label="New Task" variant="outlined" type='text' onChange={changeInput} placeholder="Hinzufügen..." />
-      </form>
+        <form onSubmit={submitInput}>
+          <Input id="outlined-basic" label="New Task" variant="outlined" type='text' onChange={changeInput} placeholder="Hinzufügen..." value={textInput} />
+        </form>
+
+        <div className='aroundson'>
+          <div className='important'></div>
+        </div>
+
       </div>
 
     </div>

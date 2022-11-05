@@ -20,7 +20,7 @@ function Main() {
   </div>
     <GoogleSearch/>
     
-    <Quicklinks/>
+    {/* <Quicklinks/> */}
     
     </div>
 
