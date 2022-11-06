@@ -1,0 +1,46 @@
+.tasksBig{
+    width: 30vw;
+    height: 8vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* justify-content: space-between; */
+
+    border-style:solid;
+    border-width: 0px;
+    border-color: rgb(189, 189, 189);
+    border-radius: 8px;
+
+    box-shadow: 1px 1px 5px rgb(189, 189, 189);
+    
+}
+
+
+/* .spacer{
+    height: 1px;
+} */
+
+.aroundBig{
+    width: 30vw;
+    height: 30vh;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+
+}
+
+.CircleAdd:hover{
+    border-radius: 100px;
+    border-color: transparent;
+    color: #03a9f4; 
+}
+
+
+.DialogStruc{
+    display: flex;
+    flex-direction: row;
+    width: 30vw;
+}

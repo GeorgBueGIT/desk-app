@@ -1,5 +1,4 @@
 import React from 'react'
-import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import Input from '@mui/material/Input';
 import '../Styles/Notes.css';
@@ -10,7 +9,7 @@ function Notes() {
 
 
 
-  const [array, setStatus] = useState([]);
+  const [array, setArray] = useState([]);
   const [textInput, setTextinput] = useState("");
 
 
@@ -23,7 +22,7 @@ function Notes() {
     const newArray = [...array, { id: index, status: false, task: textInput }]
     index++;
     setTextinput('');
-    setStatus(newArray);
+    setArray(newArray);
 
 
     return;

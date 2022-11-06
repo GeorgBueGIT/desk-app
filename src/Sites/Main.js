@@ -3,6 +3,7 @@ import Notes from "../Components/Notes";
 import GoogleSearch from "../Components/GoogleSearch";
 import Quicklinks from "../Components/Quicklinks";
 import Header from "../Components/Header";
+import BigTasks from "../Components/BigTasks";
 import "../Styles/Main.css";
 
 import React from 'react'
@@ -14,7 +15,7 @@ function Main() {
    <div className="ordnung">
   
   <div className="under">
-    <Notes/>
+    <BigTasks/>
     <Clock/>
     <Notes/>
   </div>
