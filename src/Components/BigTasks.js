@@ -24,19 +24,20 @@ import Checkbox from '@mui/material/Checkbox';
 
 
 const ar = [{ id: 1, task: "Bewerbung", duration: dayjs('2022-11-20') }, { id: 2, task: "IT Sec", duration: dayjs('2022-12-21') }];
-const lowerTasks = [{ id: 1, task1: 'Lebenslauf', task2: 'Anschreiben', task3: 'Stellen suchen' },
-{ id: 2, task1: 'Overthewire Natas', task2: 'Präsentation', task3: 'E-Test' }]
+const lowerTasks = [{ id: 1, task: 'Lebenslauf' }, { id: 1, task: 'Anschreiben' }, { id: 1, task: 'Stellen suchen' },
+{ id: 2, task: 'Overthewire Natas' }, { id: 2, task: 'Präsentation' }, { id: 2, task: 'E-Test' }]
 
 
 
 
 function BigTasks() {
 
+
+
+
   function CustomDialog(props) {
 
     const { onClose, open } = props;
-
-    // var date = new Date().toLocaleString() + "";
 
     const [textName, setTextName] = useState("");
     const [date, setDate] = useState(dayjs());
@@ -65,7 +66,7 @@ function BigTasks() {
     const handleAdd = () => {
 
       ar.push({ id: 3, task: textName, duration: dayjs(date) });
-      lowerTasks.push({ id: 3, task1: "fafa", task2: '', task3: '' });
+      lowerTasks.push({ id: 3, task: "fafa"});
       setArray(ar);
       setlowerAr(lowerTasks);
 
@@ -150,21 +151,24 @@ function BigTasks() {
 
 
                     {lowerAr.map((index2) => {
+                      if(index2.id === index.id){        
                       return (
                         <>
                           <div className='lowerTaskDiv'>
                             <Checkbox sx={{ transform: "scale(0.8)", padding: 0 }} />
                             <div className='lowerTaskAround'>
-                              <b id='due'> {lowerAr.at(index.id - 1).task1} </b>
+                              <b id='due'> {index2.task} </b>
                             </div>
                           </div>
 
                         </>
-                      )})};
+                      )
+                    } return;
+                    })}
 
-                      <div id='right'>
-                        <b id='due'>  {getleftDays(index.duration)} </b>
-                      </div>
+                    <div id='right'>
+                      <b id='due'>  {getleftDays(index.duration)} </b>
+                    </div>
 
                   </div>
                 </div>
