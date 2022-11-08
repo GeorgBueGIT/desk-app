@@ -34,6 +34,7 @@ function Notes() {
 
 
     <div className='around'>
+      <b id='padding-left'> Daily ToDo </b>
       <div className='tasks'>
 
         {/* Tasks */}

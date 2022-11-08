@@ -32,7 +32,7 @@
     border-style:solid;
     border-width: 0px;
     border-color: rgb(189, 189, 189);
-    border-radius: 15px;
+    border-radius: 5px;
 
     box-shadow: 1px 1px 5px rgb(189, 189, 189);
     width: 12vw;
@@ -83,4 +83,8 @@
     padding-left: 15px;
     font-weight: 400;
     user-select: none;
+}
+
+#padding-left{
+    padding-left: 10px;
 }

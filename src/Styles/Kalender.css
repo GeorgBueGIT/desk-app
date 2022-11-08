@@ -15,5 +15,7 @@
     gap: 15vw;
     padding-left: 5vw;
     padding-right: 5vw;
+    user-select: none;
+    font-weight: bold;
 
 }

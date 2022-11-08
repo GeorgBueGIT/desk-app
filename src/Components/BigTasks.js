@@ -66,7 +66,14 @@ function BigTasks() {
     const handleAdd = () => {
 
       ar.push({ id: 3, task: textName, duration: dayjs(date) });
-      lowerTasks.push({ id: 3, task: "fafa"});
+
+      var splitArray = things.split(', ');
+
+      for (let i = 0; i < splitArray.length; i++){
+        lowerTasks.push({ id: 3, task: splitArray.at(i) });
+      };
+
+      // lowerTasks.push({ id: 3, task: "afaf" });
       setArray(ar);
       setlowerAr(lowerTasks);
 
@@ -79,6 +86,15 @@ function BigTasks() {
       changeDate();
       setDate(newDate);
     };
+
+      // const addLowerTasksFunc = () => {
+      //   let content = [];
+      //   for (let i = 0; i < 2; i++) {
+      //     content.push(<Input placeholder='Things to do' onChange={changeThings}> </Input>);
+      //   }
+      //   return content;
+      // };
+  
 
     return (
       <Dialog onClose={handleClose} open={open} >
@@ -97,7 +113,12 @@ function BigTasks() {
             />
           </LocalizationProvider>
         </div>
-        <Input placeholder='Things to do' onChange={changeThings}> </Input>
+
+        <div className='addLowerTasks'>
+        <Input placeholder='Things to do (comma seperated)' onChange={changeThings} sx={{width:240}}> </Input>
+          
+          {/* <AddCircleOutlineSharpIcon className='CircleAdd' /> */}
+        </div>
 
         <Button onClick={handleAdd}> Add </Button>
 
@@ -151,19 +172,19 @@ function BigTasks() {
 
 
                     {lowerAr.map((index2) => {
-                      if(index2.id === index.id){        
-                      return (
-                        <>
-                          <div className='lowerTaskDiv'>
-                            <Checkbox sx={{ transform: "scale(0.8)", padding: 0 }} />
-                            <div className='lowerTaskAround'>
-                              <b id='due'> {index2.task} </b>
+                      if (index2.id === index.id) {
+                        return (
+                          <>
+                            <div className='lowerTaskDiv'>
+                              <Checkbox sx={{ transform: "scale(0.8)", padding: 0 }} />
+                              <div className='lowerTaskAround'>
+                                <b id='due'> {index2.task} </b>
+                              </div>
                             </div>
-                          </div>
 
-                        </>
-                      )
-                    } return;
+                          </>
+                        )
+                      } return null;
                     })}
 
                     <div id='right'>
