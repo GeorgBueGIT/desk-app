@@ -1,0 +1,18 @@
+
+.aroundT{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.aroundT >* {
+    border-width: 0px;
+    border-radius: 8px;
+    border-color: green;
+
+    box-shadow: 1px 1px 5px rgb(189, 189, 189);
+    height: 10vh;
+    width: 15vw;
+    border-style: solid;
+    
+}

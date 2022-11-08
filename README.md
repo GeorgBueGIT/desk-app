@@ -44,3 +44,7 @@ Todo:
 
 
 Repsponsiveness später nachholen, erst mal gehts um mich
+
+
+
+- Kalender am oberen Rand häufige Aufgaben auflisten (Duschen, Aufstehen)

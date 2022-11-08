@@ -14,6 +14,7 @@
     border-radius: 8px;
 
     box-shadow: 1px 1px 5px rgb(189, 189, 189);
+    user-select: none;
     
 }
 
@@ -29,7 +30,10 @@
     display: flex;
     flex-direction: column;
     box-shadow: none;
+}
 
+.tasksBig:hover{
+    box-shadow: 1px 1px 10px rgb(189, 189, 189);
 }
 
 .CircleAdd:hover{

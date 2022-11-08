@@ -21,7 +21,12 @@
 
 .under{
     width: 90vw;
-    display: flex; 
-    justify-content: space-between;
     padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
 }
+
+
+
+
+
