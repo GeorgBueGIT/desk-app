@@ -48,3 +48,13 @@ Repsponsiveness später nachholen, erst mal gehts um mich
 
 
 - Kalender am oberen Rand häufige Aufgaben auflisten (Duschen, Aufstehen)
+
+
+
+
+
+
+Als nächstes:
+- onClick Klassen änderung funktioniert nicht, finde einen Weg mit States!
+- ProgressCircle richtige Werte mit geben
+

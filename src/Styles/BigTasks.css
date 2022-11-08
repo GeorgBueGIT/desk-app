@@ -1,48 +1,176 @@
-.tasksBig{
-    width: 15vw;
-    height: 18vh;
-
-    /* justify-content: space-between; */
-
-    border-style:solid;
-    border-width: 0px;
-    border-color: rgb(189, 189, 189);
-    border-radius: 8px;
-
-    box-shadow: 1px 1px 5px rgb(189, 189, 189);
-    user-select: none;
-    
-    font-size: 20px;
-    padding-left: 6px;
-}
-
-
-/* .spacer{
-    height: 1px;
-} */
-
-.aroundBig{
-    width: 33vw;
-    height: 30vh;
+/* Container um alles */
+.aroundBigTasks{
+    width: 35vw;
     padding-top: 10px;
-    padding-left: 2vw;
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     box-shadow: none;
     gap: 1vw;
+
 }
 
-.tasksBig:hover{
+
+
+/* Container um einzelnes BigTask */
+.bigTask{
+    height: 18vh;
+    width: 15vw;
+    min-width: 250px;
+    border-style:solid;
+    border-width: 0px;
+    border-color: rgb(189, 189, 189);
+    border-radius: 8px;
+
+    /* für Big Task name */
+    user-select: none; 
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+
+
+    padding-left: 6px;
+    padding-right: 6px;
+
+    background-color: #FF8A65;   
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ 
+}
+
+
+/* Hover von einem einzelnen BigTask */
+.bigTask:hover{
+    box-shadow: 1px 1px 10px #fd6233;
+}
+
+
+/* Container um LowerTasks */
+.aroundLowerTasks{
+    background-color: black;
+    border-radius: 5px;
+    padding-right: 51px;
+    padding: 10px;
+}
+
+/* Damit Checkbox und Text in einer Linie */
+.lowerTaskDiv{
+    display: flex;
+}
+
+/* LowerTask Text */
+.lowerTaskText{
+    border-style:solid;
+    border-width: 0px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+
+    /* box-shadow: 1px 1px 5px #fd7a52; */
+    height: 2.5vh;
+    display: flex;  
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    color: white;
+    font-size: 15px;
+
+}
+
+.lowerTaskTextSelected{
+    border-style:solid;
+    border-width: 0px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+
+    /* box-shadow: 1px 1px 5px #fd7a52; */
+    height: 2.5vh;
+    display: flex;  
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    color: white;
+    font-size: 15px;
+    background-color: #FF8A65
+}
+
+.lowerTaskText:hover{
+    background-color: #464646;
+}
+
+.lowerTaskTextSelected:hover{
+    background-color: #464646;
+}
+
+
+/* Duetime Alligment and Text props */
+.due{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end; 
+    height: 2vh;
+    padding-right: 5px; 
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    padding-bottom: 4px;
+
+}
+
+
+
+
+
+
+
+.taskAdd{
+    height: 18vh;
+    width: 15vw;
+    min-width: 250px;
+    border-style:solid;
+    border-width: 0px;
+    border-color: rgb(189, 189, 189);
+    border-radius: 8px;
+
+    padding-left: 6px;
+    padding-right: 6px;
+    
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+}
+
+.taskAdd:hover{
     box-shadow: 1px 1px 10px rgb(189, 189, 189);
 }
+
+
+
+
+
+
+
+
+.addLowerTasks{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 17vw;
+}
+
+
 
 .CircleAdd:hover{
     border-radius: 100px;
     border-color: transparent;
-    color: #03a9f4; 
+    color: #FF8A65; 
 }
-
 
 .DialogStruc{
     display: flex;
@@ -53,83 +181,29 @@
 }
 
 
-.textStyle >* {
-    color: antiquewhite;
-    font-size: 10px;
-}
 
-#due{
-    font-size: 10px;
-    color: gray;
-}
 
-.struc{
+.bigTaskHeader{
     display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    padding: 0px;  
+    padding-top: 10px;
+    justify-content: space-between;
 }
 
-.taskAdd{
-    width: 15.3vw;
-    height: 18vh;
-
-    /* justify-content: space-between; */
-
-    border-style:solid;
-    border-width: 0px;
-    border-color: rgb(189, 189, 189);
-    border-radius: 8px;
-
-    box-shadow: 1px 1px 5px rgb(189, 189, 189);
-    user-select: none;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.taskAdd:hover{
-    box-shadow: 1px 1px 10px rgb(189, 189, 189);
-}
-
-
-#right{
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end; 
-    height: 2vh;
-    padding-right: 5px;
-
-}
-
-.lowerTaskAround{
-    border-style:solid;
-    border-width: 0px;
-    border-color: rgb(189, 189, 189);
+.progressAndDate{
+    background-color: black;
+    height: 30px;
+    width: 100px;
     border-radius: 5px;
-
-    box-shadow: 1px 1px 5px rgb(189, 189, 189);
-    width: 8vw;
-    height: 2.5vh;
-    display: flex;  
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding-right: 10px;
     padding-left: 10px;
 
 }
 
-.lowerTaskAround:hover{
-    box-shadow: 1px 1px 10px rgb(189, 189, 189);
-}
 
-.lowerTaskDiv{
-    display: flex;
+.date{
+    color: white;
+    font-size: 12px;
 }
-
-.addLowerTasks{
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 17vw;
-}
-

@@ -11,6 +11,8 @@ import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 
@@ -24,8 +26,9 @@ import Checkbox from '@mui/material/Checkbox';
 
 
 const ar = [{ id: 1, task: "Bewerbung", duration: dayjs('2022-11-20') }, { id: 2, task: "IT Sec", duration: dayjs('2022-12-21') }];
-const lowerTasks = [{ id: 1, task: 'Lebenslauf' }, { id: 1, task: 'Anschreiben' }, { id: 1, task: 'Stellen suchen' },
-{ id: 2, task: 'Overthewire Natas' }, { id: 2, task: 'Präsentation' }, { id: 2, task: 'E-Test' }]
+
+const lowerTasks = [{ id: 1, task: 'Lebenslauf', done: true }, { id: 1, task: 'Anschreiben', done: false }, { id: 1, task: 'Stellen suchen', done: false },
+{ id: 2, task: 'Overthewire Natas', done: false }, { id: 2, task: 'Präsentation', done: false }, { id: 2, task: 'E-Test', done: false }]
 
 
 
@@ -69,8 +72,8 @@ function BigTasks() {
 
       var splitArray = things.split(', ');
 
-      for (let i = 0; i < splitArray.length; i++){
-        lowerTasks.push({ id: 3, task: splitArray.at(i) });
+      for (let i = 0; i < splitArray.length; i++) {
+        lowerTasks.push({ id: 3, task: splitArray.at(i), done: false });
       };
 
       // lowerTasks.push({ id: 3, task: "afaf" });
@@ -87,14 +90,14 @@ function BigTasks() {
       setDate(newDate);
     };
 
-      // const addLowerTasksFunc = () => {
-      //   let content = [];
-      //   for (let i = 0; i < 2; i++) {
-      //     content.push(<Input placeholder='Things to do' onChange={changeThings}> </Input>);
-      //   }
-      //   return content;
-      // };
-  
+    // const addLowerTasksFunc = () => {
+    //   let content = [];
+    //   for (let i = 0; i < 2; i++) {
+    //     content.push(<Input placeholder='Things to do' onChange={changeThings}> </Input>);
+    //   }
+    //   return content;
+    // };
+
 
     return (
       <Dialog onClose={handleClose} open={open} >
@@ -115,8 +118,8 @@ function BigTasks() {
         </div>
 
         <div className='addLowerTasks'>
-        <Input placeholder='Things to do (comma seperated)' onChange={changeThings} sx={{width:240}}> </Input>
-          
+          <Input placeholder='Things to do (comma seperated)' onChange={changeThings} sx={{ width: 240 }}> </Input>
+
           {/* <AddCircleOutlineSharpIcon className='CircleAdd' /> */}
         </div>
 
@@ -136,7 +139,7 @@ function BigTasks() {
     console.log('Days: ', days);
     console.log('Hours: ', hours);
 
-    return "Due in " + days + " Days and " + hours + " Hours";
+    return days + "D " + hours + "H";
   };
 
 
@@ -154,49 +157,74 @@ function BigTasks() {
     setOpen(false);
   };
 
+  const percentage = 66;
+
+
+  const changeDoneState = (i) => {
+    console.log("wei n")
+            let tempAr = lowerAr;
+            tempAr[i] = {id: tempAr[i].id, task: tempAr[i].task, done: tempAr[i].done};
+            setlowerAr(tempAr);
+  }
+
 
   return (
     <>
 
-      <div className='aroundBig'>
+      <div className='aroundBigTasks'>
 
 
         {array.map((index) => {
           return (
             <div>
-              <div className='tasksBig'>
-                <div key={index.id}>
-
-                  <div className='struc'>
-                    <b>  {index.task} </b>
-
-
-                    {lowerAr.map((index2) => {
-                      if (index2.id === index.id) {
+              <div className='bigTask'>
+                <div className='bigTaskHeader'>
+                  <b>  {index.task} </b>
+                  <div className='progressAndDate'>
+                    <b className='date'>{getleftDays(index.duration)}</b>
+                    <CircularProgress variant="determinate" value={77} sx={{ color: 'white' }} thickness={5} size={20} />
+                  </div>
+                </div>
+                <div className='aroundLowerTasks'>
+                  {lowerAr.map((index2) => {
+                    if (index2.id === index.id) {
+                      if (!index2.done) {
                         return (
                           <>
                             <div className='lowerTaskDiv'>
-                              <Checkbox sx={{ transform: "scale(0.8)", padding: 0 }} />
-                              <div className='lowerTaskAround'>
-                                <b id='due'> {index2.task} </b>
+                              <div className='lowerTaskText' onClick={() =>{changeDoneState(lowerAr.indexOf(index2))}} >
+                                <b> {index2.task} </b>
                               </div>
                             </div>
 
                           </>
                         )
-                      } return null;
-                    })}
+                      }
+                      else {
+                        return (
+                          <>
+                            <div className='lowerTaskDiv'>
+                              <div className='lowerTaskTextSelected' onClick={() =>{changeDoneState(lowerAr.indexOf(index2))}}>
+                                <b> {index2.task} </b>
+                              </div>
+                            </div>
 
-                    <div id='right'>
-                      <b id='due'>  {getleftDays(index.duration)} </b>
-                    </div>
+                          </>)
+                      }
+                    } return null;
+                  })}
 
-                  </div>
                 </div>
 
 
+                <b className='due'>  {index.duration.get('date')}.{index.duration.get('month')}.{index.duration.get('year')} </b>
+
+
+
+
+
+
               </div>
-              <div className='spacer'> </div>
             </div>
           );
         })}
