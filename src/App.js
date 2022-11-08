@@ -1,12 +1,14 @@
 import Intro from "./Sites/Intro";
 import Main from "./Sites/Main";
+import StyleTest from "./Sites/StyleTest";
 
 
 function App() {
 
   return (
     <div >
-          <Main/>
+      <StyleTest/>
+          {/* <Main/> */}
           {/* <Intro/> */}
     </div>
   );
