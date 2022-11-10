@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../Styles/BigTasks.css';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import Dialog from '@mui/material/Dialog';
@@ -28,8 +28,8 @@ import Draggable from "react-draggable";
 
 const ar = [{ id: 1, task: "Bewerbung", duration: dayjs('2022-11-20') }, { id: 2, task: "IT Sec", duration: dayjs('2022-12-21') }];
 
-const lowerTasks = [{ id: 1, task: 'Lebenslauf', done: true }, { id: 1, task: 'Anschreiben', done: false }, { id: 1, task: 'Stellen suchen', done: false },
-{ id: 2, task: 'Overthewire Natas', done: false }, { id: 2, task: 'Präsentation', done: false }, { id: 2, task: 'E-Test', done: false }]
+const lowerTasks = [{ id: 1, lId: 1, task: 'Lebenslauf', done: true }, { id: 1, lId: 2, task: 'Anschreiben', done: false }, { id: 1, lId: 3, task: 'Stellen suchen', done: false },
+{ id: 2, lId: 4, task: 'Overthewire Natas', done: false }, { id: 2, lId: 5, task: 'Präsentation', done: false }, { id: 2, lId: 6, task: 'E-Test', done: false }]
 
 
 
@@ -158,93 +158,108 @@ function BigTasks() {
   const percentage = 66;
 
 
-  const changeDoneState = (i) => {
+  const changelowerArStatus = (lId) => {
     let tempAr = lowerAr;
-    tempAr[i] = { id: tempAr[i].id, task: tempAr[i].task, done: tempAr[i].done };
-    setlowerAr(tempAr);
-  }
+    console.log("we in");
+    for (let index = 0; index < lowerAr.length; index++) {
+      if(tempAr[index].lId === lId){
+        tempAr[index] = {id: lowerAr[index].id, lId: lowerAr[index].lId, task: lowerAr[index].task, done: !lowerAr[index].done};
+        console.log(tempAr);
+        setlowerAr(tempAr);
+       } 
+       else{
+          console.log("sorry");
+        }
+      }
+      
+    }
+
+    useEffect(() => {
+      //Runs only on the first render
+      console.log("update");
+    }, [lowerAr]);
 
 
   return (
     <>
 
-<Draggable bounds={{left: -50, top: 20, right: 1030, bottom: 370}} handle=".headNotes">  
-<div className='boxBig'>
-      <div className='headNotes'>
-    <b className='paddingleft'> Long term Tasks </b>
-    <AssignmentOutlinedIcon></AssignmentOutlinedIcon>
-    
-    </div>
-<div className='aroundBigTasks'>
-        {array.map((index) => {
-          return (
-            <div>
-              <div className='bigTask'>
+      <Draggable bounds={{ left: -50, top: 20, right: 1030, bottom: 370 }} handle=".headNotes">
+        <div className='boxBig'>
+          <div className='headNotes'>
+            <b className='paddingleft'> Long term Tasks </b>
+            <AssignmentOutlinedIcon></AssignmentOutlinedIcon>
 
-                <div className='bigTaskHeader'>
-                  <b>  {index.task} </b>
-                  <div className='progressAndDate'>
-                    <b className='date'>{getleftDays(index.duration)}</b>
-                    <CircularProgress variant="determinate" value={77} sx={{ color: 'white' }} thickness={5} size={20} />
+          </div>
+          <div className='aroundBigTasks'>
+            {array.map((index) => {
+              return (
+                <div>
+                  <div className='bigTask'>
+
+                    <div className='bigTaskHeader'>
+                      <b>  {index.task} </b>
+                      <div className='progressAndDate'>
+                        <b className='date'>{getleftDays(index.duration)}</b>
+                        <CircularProgress variant="determinate" value={77} sx={{ color: 'white' }} thickness={5} size={20} />
+                      </div>
+                    </div>
+
+                    <div className='Trennung'></div>
+
+                    <div className='aroundLowerTasks'>
+                      {lowerAr.map((index2) => {
+                        if (index2.id === index.id) {
+                          if (!index2.done) {
+                            return (
+                              <>
+                                <div className='lowerTaskDiv'>
+                                  <div className={index2.done ? 'lowerTaskTextSelected' : 'lowerTaskText'} onClick={() => { changelowerArStatus(index2.lId) }} >
+                                    <b> {index2.task} </b>
+                                  </div>
+                                </div>
+
+                              </>
+                            )
+                          }
+                          else {
+                            return (
+                              <>
+                                <div className='lowerTaskDiv'>
+                                  <div className='lowerTaskTextSelected' onClick={() => { changelowerArStatus(index2.lId) }}>
+                                    <b> {index2.task} </b>
+                                  </div>
+                                </div>
+
+                              </>)
+                          }
+                        } return null;
+                      })}
+
+                    </div>
+                    <div className='Trennung'></div>
+
+                    <b className='due'>  {index.duration.get('date')}.{index.duration.get('month')}.{index.duration.get('year')} </b>
+
+
+
+
+
+
                   </div>
                 </div>
-
-                <div className='Trennung'></div>
-                  
-                <div className='aroundLowerTasks'>
-                  {lowerAr.map((index2) => {
-                    if (index2.id === index.id) {
-                      if (!index2.done) {
-                        return (
-                          <>
-                            <div className='lowerTaskDiv'>
-                              <div className='lowerTaskText' onClick={() => { changeDoneState(lowerAr.indexOf(index2)) }} >
-                                <b> {index2.task} </b>
-                              </div>
-                            </div>
-
-                          </>
-                        )
-                      }
-                      else {
-                        return (
-                          <>
-                            <div className='lowerTaskDiv'>
-                              <div className='lowerTaskTextSelected' onClick={() => { changeDoneState(lowerAr.indexOf(index2)) }}>
-                                <b> {index2.task} </b>
-                              </div>
-                            </div>
-
-                          </>)
-                      }
-                    } return null;
-                  })}
-
-                </div>
-                <div className='Trennung'></div>
-
-                  <b className='due'>  {index.duration.get('date')}.{index.duration.get('month')}.{index.duration.get('year')} </b>
-                
-
-
-
-
-
-              </div>
+              );
+            })}
+            <div className='taskAdd'>
+              <AddCircleOutlineSharpIcon className='CircleAdd' onClick={handleClickOpen} />
+              <CustomDialog
+                open={open}
+                onClose={handleClose}
+                className='Dialgo'
+              />
             </div>
-          );
-        })}
-        <div className='taskAdd'>
-          <AddCircleOutlineSharpIcon className='CircleAdd' onClick={handleClickOpen} />
-          <CustomDialog
-            open={open}
-            onClose={handleClose}
-            className='Dialgo'
-          />
+          </div>
         </div>
-      </div>
-</div>
-</Draggable>   
+      </Draggable>
     </>
   )
 }

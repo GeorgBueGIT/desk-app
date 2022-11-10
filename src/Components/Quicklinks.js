@@ -15,10 +15,10 @@ function Quicklinks() {
     </div>
 
 <div className='quickFlex'>
-    <img src={require('../Media/outlooks.jpg')} className='pic' onClick={{href: "http://google.com"}} />
-    <img src={require('../Media/moodle.png')} className='pic' />
-    <img src={require('../Media/outlooks.jpg')} className='pic' />
-    <img src={require('../Media/moodle.png')} className='pic' />
+    <img src={require('../Media/outlooks.jpg')} className='pic' alt='' />
+    <img src={require('../Media/moodle.png')} className='pic' alt='' />
+    <img src={require('../Media/outlooks.jpg')} className='pic' alt='' />
+    <img src={require('../Media/moodle.png')} className='pic' alt='' />
     
 </div>
      </div>
