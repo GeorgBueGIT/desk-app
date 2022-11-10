@@ -34,6 +34,7 @@
     background-color: #eeeeee;
     padding-left: 10px;
     padding-right: 10px;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -56,10 +57,9 @@
   }
 
 .insertField{
-    padding-left: 10px;
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    padding: 0 0 10px 10px;
 }
 
 .task{
@@ -72,7 +72,7 @@
     /* box-shadow: 1px 1px 4px #9a9a9a; */  
     
     /* padding-left: 15px; */
-    font-size: 15px;
+    font-size: 12px;
     user-select: none;
     color: #000000;
 
@@ -102,8 +102,7 @@
     justify-content: space-between;
 
     user-select: none;
-    color:black;
-    
+    color:black;    
 }    
 
 .paddingleft{

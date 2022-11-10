@@ -1,19 +1,35 @@
 /* Container um alles */
-.aroundBigTasks{
+.boxBig{
     /* width: 32.5vw; */
-    min-width: 263px;
-    width: 32.5vw;
+    min-width: 279px;
+    width: 32.5vw;  
+    display: flex;
+    flex-direction: column; 
+    
+    background-color: #fafafa;
+    border-radius: 8px;    
 
+    box-shadow: 1px 1px 15px #9a9a9a;
+}
+
+
+/* Container um die Tasks */
+.aroundBigTasks{
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     box-shadow: none;
     gap: 1vw;
 
+    border-style: solid;
+    border-width: 1px 0 0 0;
     background-color: #eeeeee;
-    border-radius: 8px;
+    border-color: #e0e0e0;
+    border-radius: 0 0 8px 8px;
+
+
     /* box-shadow: 1px 1px 10px rgb(52, 52, 52); */
-    padding: 10px;
-    box-shadow: 1px 1px 15px #9a9a9a;
+
 
 }
 
@@ -22,8 +38,7 @@
 /* Container um einzelnes BigTask */
 .bigTask{
     height: 18vh;
-    width: 15vw;
-    min-width: 250px;
+    min-width: 246px;
     border-style:solid;
     border-width: 0px;
     border-color: rgb(189, 189, 189);
@@ -135,8 +150,8 @@
 
 .taskAdd{
     height: 18vh;
-    width: 15vw;
-    min-width: 250px;
+    /* width: 15vw; */
+    min-width: 246px;
     border-style:solid;
     border-width: 0px;
     border-color: rgb(189, 189, 189);
@@ -222,3 +237,14 @@
     height: 1px;
     background-color: #e0e0e0;
 }
+
+
+.headBig{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    user-select: none;
+    color:black;    
+}    

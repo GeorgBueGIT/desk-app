@@ -10,8 +10,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import TextField from '@mui/material/TextField';
-import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
+import Draggable from "react-draggable";
 
 
 
@@ -136,9 +137,6 @@ function BigTasks() {
     const days = Math.floor(hours / 24);
     hours = hours - (days * 24);
 
-    console.log('Days: ', days);
-    console.log('Hours: ', hours);
-
     return days + "D " + hours + "H";
   };
 
@@ -161,7 +159,6 @@ function BigTasks() {
 
 
   const changeDoneState = (i) => {
-    console.log("wei n")
     let tempAr = lowerAr;
     tempAr[i] = { id: tempAr[i].id, task: tempAr[i].task, done: tempAr[i].done };
     setlowerAr(tempAr);
@@ -171,9 +168,14 @@ function BigTasks() {
   return (
     <>
 
-      <div className='aroundBigTasks'>
-
-
+<Draggable bounds={{left: -50, top: 20, right: 1030, bottom: 370}} handle=".headNotes">  
+<div className='boxBig'>
+      <div className='headNotes'>
+    <b className='paddingleft'> Long term Tasks </b>
+    <AssignmentOutlinedIcon></AssignmentOutlinedIcon>
+    
+    </div>
+<div className='aroundBigTasks'>
         {array.map((index) => {
           return (
             <div>
@@ -241,7 +243,8 @@ function BigTasks() {
           />
         </div>
       </div>
-
+</div>
+</Draggable>   
     </>
   )
 }

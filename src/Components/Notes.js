@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Input from '@mui/material/Input';
 import '../Styles/Notes.css';
 import ListAltRoundedIcon from '@mui/icons-material/ListAltRounded';
+import Draggable from "react-draggable";
 
 let index = 0;
 
@@ -33,7 +34,7 @@ function Notes() {
 
   return (
 
-
+<Draggable bounds={{left: -870, top: 20, right: 520, bottom: 420}} handle=".headNotes"> 
     <div className='around'>
 
     <div className='headNotes'>
@@ -70,7 +71,7 @@ function Notes() {
       </div>
 
     </div>
-
+    </Draggable> 
 
   );
 }
