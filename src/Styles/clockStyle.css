@@ -1,9 +1,22 @@
 
 .clockFont{
     font-family: 'Roboto', sans-serif;
-    font-size: 55px;
-    margin: 60px;
-    color:rgb(0, 0, 0);
+    font-size: 3vw;
+
+    color:rgb(255, 255, 255);
     font-weight: bold;
     user-select: none;
+    text-shadow: 6px 6px 0px #FF8A65;
+    background-color: black;
+
+    border-radius: 8px;
+
+    width: 15vw;
+    height: 7vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
+    
 }

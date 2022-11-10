@@ -1,6 +1,6 @@
 .around{
     width: 15vw;
-    height: 35vh;
+    height: 39.5vh;
 
     display: flex;
     flex-direction: column;
@@ -11,20 +11,29 @@
     border-color: rgb(189, 189, 189);
     border-radius: 8px;
 
-    padding-bottom: 20px;
-
-    box-shadow: 1px 1px 5px rgb(189, 189, 189);
-    padding-top: 10px;
+    background-color: #fafafa;
+    box-shadow: 1px 1px 15px #9a9a9a;
+    /* padding-top: 10px; */
 
 }
 
 .tasks{
     display: flex;
     flex-direction: column;
+    gap: 1vh;
+
     height: 25vh;
     overflow-y:scroll;
-    padding-top: 2px;
-    row-gap: 5px;
+    padding-top: 10px;
+
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-left-width: 0px;border-right-width: 0px;
+    border-color: #e0e0e0;
+    background-color: #eeeeee;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -50,30 +59,34 @@
     padding-left: 10px;
     display: flex;
     flex-direction: row;
+    padding: 10px;
 }
 
 .task{
-    border-style:solid;
-    border-width: 0px;
-    border-color: rgb(189, 189, 189);
     border-radius: 5px;
 
-    box-shadow: 1px 1px 5px rgb(189, 189, 189);
-    width: 12vw;
-    height: 3vh;
     justify-content: center;
     align-items: center;
+
+    background-color: #fafafa;
+    /* box-shadow: 1px 1px 4px #9a9a9a; */  
+    
+    /* padding-left: 15px; */
+    font-size: 15px;
+    user-select: none;
+    color: #000000;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .task:hover{
-    box-shadow: 1px 1px 10px rgb(189, 189, 189);
+    /* box-shadow: 1px 1px 10px rgb(189, 189, 189); */
+    background-color: #e0e0e0;
 }
 
-.together{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
+.taskText{
+ padding-left: 10px;
 }
 
 
@@ -81,35 +94,20 @@
     height: 10px;
 }
 
-.aroundson{
+
+.headNotes{
+    padding: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 32px;
-    width: 20px;
-    padding-left: 20px;
-}
-.important{
-    background-color: #03a9f4;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    position: relative;  
-}
+    justify-content: space-between;
 
-.important:hover{
-    box-shadow: 1px 1px 5px rgb(189, 189, 189);
-}
-
-
-
-.taskText{
-    padding-left: 15px;
-    font-weight: 400;
     user-select: none;
-}
+    color:black;
+    
+}    
 
-#padding-left{
-    padding-left: 10px;
-    user-select: none;
+.paddingleft{
+    padding-left: 5px;
+    color: #FF8A65;
+    
 }

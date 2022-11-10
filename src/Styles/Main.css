@@ -16,7 +16,7 @@
     box-shadow: 1px 0px 5px rgb(189, 189, 189);
     
     margin-top: 1vh;
-    background-color: #000000;
+    background-color: #fafafa;
     
 }
 
@@ -26,8 +26,4 @@
     display: flex;
     justify-content: space-between;
 }
-
-
-
-
 

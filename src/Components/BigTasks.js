@@ -162,9 +162,9 @@ function BigTasks() {
 
   const changeDoneState = (i) => {
     console.log("wei n")
-            let tempAr = lowerAr;
-            tempAr[i] = {id: tempAr[i].id, task: tempAr[i].task, done: tempAr[i].done};
-            setlowerAr(tempAr);
+    let tempAr = lowerAr;
+    tempAr[i] = { id: tempAr[i].id, task: tempAr[i].task, done: tempAr[i].done };
+    setlowerAr(tempAr);
   }
 
 
@@ -178,6 +178,7 @@ function BigTasks() {
           return (
             <div>
               <div className='bigTask'>
+
                 <div className='bigTaskHeader'>
                   <b>  {index.task} </b>
                   <div className='progressAndDate'>
@@ -185,6 +186,9 @@ function BigTasks() {
                     <CircularProgress variant="determinate" value={77} sx={{ color: 'white' }} thickness={5} size={20} />
                   </div>
                 </div>
+
+                <div className='Trennung'></div>
+                  
                 <div className='aroundLowerTasks'>
                   {lowerAr.map((index2) => {
                     if (index2.id === index.id) {
@@ -192,7 +196,7 @@ function BigTasks() {
                         return (
                           <>
                             <div className='lowerTaskDiv'>
-                              <div className='lowerTaskText' onClick={() =>{changeDoneState(lowerAr.indexOf(index2))}} >
+                              <div className='lowerTaskText' onClick={() => { changeDoneState(lowerAr.indexOf(index2)) }} >
                                 <b> {index2.task} </b>
                               </div>
                             </div>
@@ -204,7 +208,7 @@ function BigTasks() {
                         return (
                           <>
                             <div className='lowerTaskDiv'>
-                              <div className='lowerTaskTextSelected' onClick={() =>{changeDoneState(lowerAr.indexOf(index2))}}>
+                              <div className='lowerTaskTextSelected' onClick={() => { changeDoneState(lowerAr.indexOf(index2)) }}>
                                 <b> {index2.task} </b>
                               </div>
                             </div>
@@ -215,10 +219,10 @@ function BigTasks() {
                   })}
 
                 </div>
+                <div className='Trennung'></div>
 
-
-                <b className='due'>  {index.duration.get('date')}.{index.duration.get('month')}.{index.duration.get('year')} </b>
-
+                  <b className='due'>  {index.duration.get('date')}.{index.duration.get('month')}.{index.duration.get('year')} </b>
+                
 
 
 

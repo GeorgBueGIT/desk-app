@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import Input from '@mui/material/Input';
 import '../Styles/Notes.css';
+import ListAltRoundedIcon from '@mui/icons-material/ListAltRounded';
 
 let index = 0;
 
@@ -34,21 +35,26 @@ function Notes() {
 
 
     <div className='around'>
-      <b id='padding-left'> Daily ToDo </b>
-      <div className='tasks'>
 
+    <div className='headNotes'>
+    <b className='paddingleft'> Daily ToDo </b>
+    <ListAltRoundedIcon ></ListAltRoundedIcon>
+    
+    </div>
+
+
+      <div className='tasks'>
         {/* Tasks */}
         {array.map((index) => {
           return (
             <>
-              <div key={index.id} className='together'>
+              <div key={index.id}>
 
                 <div className='task'>
                   <b className='taskText'>  {index.task}</b>
                 </div>
 
               </div>
-              <div className='spacer'> </div>
 
             </>
           );
@@ -60,10 +66,6 @@ function Notes() {
         <form onSubmit={submitInput}>
           <Input id="outlined-basic" label="New Task" variant="outlined" type='text' onChange={changeInput} placeholder="Hinzufügen..." value={textInput} />
         </form>
-
-        <div className='aroundson'>
-          <div className='important'></div>
-        </div>
 
       </div>
 

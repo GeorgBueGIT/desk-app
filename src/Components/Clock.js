@@ -11,7 +11,7 @@ function Clock() {
     }, 1000);
   }, []);
 
-  return <div className="clockFont">{clockState}</div>;
+  return <div className="clockFont">{clockState} </div>;
 }
 
 export default Clock;
