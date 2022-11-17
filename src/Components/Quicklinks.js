@@ -15,11 +15,17 @@ function Quicklinks() {
     </div>
 
 <div className='quickFlex'>
-    <img src={require('../Media/outlooks.jpg')} className='pic' alt='' />
-    <img src={require('../Media/moodle.png')} className='pic' alt='' />
-    <img src={require('../Media/outlooks.jpg')} className='pic' alt='' />
-    <img src={require('../Media/moodle.png')} className='pic' alt='' />
+     <a href="https://google.com" target="_blank" rel="noreferrer">
+     <img src={require('../Media/igg.png')} className='pic' alt='' />
+        </a>
     
+    <img src={require('../Media/moodle.png')} className='pic' alt='' />
+    <img src={require('../Media/outlooks.jpg')} className='pic' alt='' />
+    <img src={require('../Media/whatsApp.png')} className='pic' alt='' />
+    <img src={require('../Media/Netflix.png')} className='pic' alt='' />
+    <img src={require('../Media/prime.jpg')} className='pic' alt='' />
+    <img src={require('../Media/youtube.png')} className='pic' alt='' />
+    <div className='addQuick'> + </div>
 </div>
      </div>
      </Draggable> 
@@ -28,3 +34,7 @@ function Quicklinks() {
 }
 
 export default Quicklinks
+
+
+
+// social   study   entertainment  other

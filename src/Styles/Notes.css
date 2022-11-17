@@ -1,4 +1,4 @@
-.around{
+.around {
     width: 15vw;
     height: 39.5vh;
 
@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    border-style:solid;
+    border-style: solid;
     border-width: 0px;
     border-color: rgb(189, 189, 189);
     border-radius: 8px;
@@ -17,19 +17,20 @@
 
 }
 
-.tasks{
+.tasks {
     display: flex;
     flex-direction: column;
     gap: 1vh;
 
     height: 25vh;
-    overflow-y:scroll;
+    overflow-y: scroll;
     padding-top: 10px;
 
     border-top-width: 1px;
     border-bottom-width: 1px;
     border-style: solid;
-    border-left-width: 0px;border-right-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
     border-color: #e0e0e0;
     background-color: #eeeeee;
     padding-left: 10px;
@@ -39,38 +40,40 @@
 
 ::-webkit-scrollbar {
     width: 2px;
-  }
-
-  /* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-
-.insertField{
-    display: flex;
-    flex-direction: row;
-    padding: 0 0 10px 10px;
 }
 
-.task{
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.insertField {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px 10px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task {
     border-radius: 5px;
 
     justify-content: center;
     align-items: center;
 
     background-color: #fafafa;
-    /* box-shadow: 1px 1px 4px #9a9a9a; */  
-    
+    /* box-shadow: 1px 1px 4px #9a9a9a; */
+
     /* padding-left: 15px; */
     font-size: 12px;
     user-select: none;
@@ -78,35 +81,91 @@
 
     padding-top: 5px;
     padding-bottom: 5px;
+
 }
 
-.task:hover{
+.task:hover {
     /* box-shadow: 1px 1px 10px rgb(189, 189, 189); */
     background-color: #e0e0e0;
 }
 
-.taskText{
- padding-left: 10px;
+.taskText {
+    padding-left: 10px;
 }
 
 
-.spacer{
+.spacer {
     height: 10px;
 }
 
 
-.headNotes{
+.headNotes {
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     user-select: none;
-    color:black;    
-}    
+    color: black;
+}
 
-.paddingleft{
+.paddingleft {
     padding-left: 5px;
-    color: #FF8A65;
-    
+    color: #000000;
+    font-size: larger;
+
+}
+
+
+.option{
+    height: 25px;
+    border-radius: 0 5px 5px 0;
+    width: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: #eeeeee;
+    border-style: solid;
+    border-width: 0 0 0 1px;
+}
+
+.option:hover{
+    background-color: #e0e0e0;
+}
+
+.task2 {
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fafafa;
+    /* box-shadow: 1px 1px 4px #9a9a9a; */
+
+    /* padding-left: 15px; */
+    font-size: 12px;
+    user-select: none;
+    color: #000000;
+
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bothOptions {
+    display: flex;
+}
+
+.dont{
+    height: 26px;
+    display: flex;
+    align-items: center;
+    width: 88%;
+}
+
+.dont:hover {
+    /* box-shadow: 1px 1px 10px rgb(189, 189, 189); */
+    background-color: #e0e0e0;
 }

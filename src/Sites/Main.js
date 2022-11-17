@@ -6,8 +6,9 @@ import Header from "../Components/Header";
 import BigTasks from "../Components/BigTasks";
 import Kalender from "../Components/Kalender";
 import "../Styles/Main.css";
+import Weather from "../Components/Weather";
+import React from 'react';
 
-import React from 'react'
 
 function Main() {
   return (
@@ -26,6 +27,7 @@ function Main() {
     <Kalender/>
     
     </div>
+    <Weather/>
 
     </>
   )

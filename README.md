@@ -7,7 +7,7 @@ Anforderungen:
 - Google Suche soll direkt in der Seite möglich sein, damit man keinen neuen Tab öffnen muss um zu googlen
 - Kalender
 - Todo
-- Login zur Sicherheit meiner Daten
+- Login
 - Uhrzeit (Optional eher für Visuelle Aspekte)
 - Quicklinks durch Symbole (dynamisch erweiterbar)
 - Connection zwischen meinem Kalender und Iphone Kalender möglich?
@@ -53,8 +53,25 @@ Repsponsiveness später nachholen, erst mal gehts um mich
 
 
 
+Big Tasks:
+- Hinzufügen besser machen
+- lower Tasks draggable und in ToDo und Kalender einfügen können
+- Style
+X ProgressCircle richtige Werte mit geben     
 
-Als nächstes:
-- onClick Klassen änderung funktioniert nicht, finde einen Weg mit States!
-- ProgressCircle richtige Werte mit geben
 
+
+ToDo:
+- Löschen täglich automatisch
+- Lock Möglichkeit für daily toDos todo
+- Abhaken
+
+
+
+Header
+- Wetter
+- Vlt Wetter graph für den Tag
+
+
+Login
+- Google Api? Muss ich mich dann nicht um Sicherheitszeug kümmern?

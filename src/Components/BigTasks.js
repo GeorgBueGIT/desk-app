@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../Styles/BigTasks.css';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import Dialog from '@mui/material/Dialog';
@@ -17,27 +17,16 @@ import Draggable from "react-draggable";
 
 
 
-
-//   SimpleDialog.propTypes = {
-//     onClose: PropTypes.func.isRequired,
-//     open: PropTypes.bool.isRequired,
-//     selectedValue: PropTypes.string.isRequired,
-//   };
-
-
-
-const ar = [{ id: 1, task: "Bewerbung", duration: dayjs('2022-11-20') }, { id: 2, task: "IT Sec", duration: dayjs('2022-12-21') }];
+const ar = [{ id: 1, task: "Bewerbung", due: dayjs('2022-11-20'), start: dayjs('2022-11-07') }, { id: 2, task: "IT Sec", due: dayjs('2022-12-21'), start: dayjs('2022-11-14') }];
 
 const lowerTasks = [{ id: 1, lId: 1, task: 'Lebenslauf', done: true }, { id: 1, lId: 2, task: 'Anschreiben', done: false }, { id: 1, lId: 3, task: 'Stellen suchen', done: false },
 { id: 2, lId: 4, task: 'Overthewire Natas', done: false }, { id: 2, lId: 5, task: 'Präsentation', done: false }, { id: 2, lId: 6, task: 'E-Test', done: false }]
 
-
+let idCounter = 3;
+let lIdCounter = 7;
 
 
 function BigTasks() {
-
-
-
 
   function CustomDialog(props) {
 
@@ -56,48 +45,39 @@ function BigTasks() {
     }
 
     function changeDate() {
-      setDate(value);
-      // console.log(date);
+      setDate(date);
     }
 
     const handleClose = () => {
-
-
-
       onClose();
     };
 
+
     const handleAdd = () => {
 
-      ar.push({ id: 3, task: textName, duration: dayjs(date) });
+      let tempArr = array;
+      let tempLower = lowerAr;
+
+
+      tempArr.push({ id: idCounter, task: textName, due: dayjs(date), start: dayjs() });
 
       var splitArray = things.split(', ');
 
       for (let i = 0; i < splitArray.length; i++) {
-        lowerTasks.push({ id: 3, task: splitArray.at(i), done: false });
+        tempLower.push({ id: idCounter, lId: lIdCounter, task: splitArray.at(i), done: false });
+        lIdCounter++;
       };
-
+      idCounter++;
       // lowerTasks.push({ id: 3, task: "afaf" });
-      setArray(ar);
-      setlowerAr(lowerTasks);
-
+      setArray([...tempArr]);
+      setlowerAr([...tempLower]);
       onClose();
     };
-
-    const [value, setValue] = React.useState(dayjs({ date }));
 
     const handleChange = (newDate) => {
       changeDate();
       setDate(newDate);
     };
-
-    // const addLowerTasksFunc = () => {
-    //   let content = [];
-    //   for (let i = 0; i < 2; i++) {
-    //     content.push(<Input placeholder='Things to do' onChange={changeThings}> </Input>);
-    //   }
-    //   return content;
-    // };
 
 
     return (
@@ -133,6 +113,7 @@ function BigTasks() {
   function getleftDays(due) {
     var now = dayjs(new Date());
 
+
     let hours = due.diff(now, 'hours');
     const days = Math.floor(hours / 24);
     hours = hours - (days * 24);
@@ -145,7 +126,7 @@ function BigTasks() {
   const [lowerAr, setlowerAr] = useState(lowerTasks);
 
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -155,30 +136,24 @@ function BigTasks() {
     setOpen(false);
   };
 
-  const percentage = 66;
-
 
   const changelowerArStatus = (lId) => {
     let tempAr = lowerAr;
-    console.log("we in");
     for (let index = 0; index < lowerAr.length; index++) {
-      if(tempAr[index].lId === lId){
-        tempAr[index] = {id: lowerAr[index].id, lId: lowerAr[index].lId, task: lowerAr[index].task, done: !lowerAr[index].done};
-        console.log(tempAr);
-        setlowerAr(tempAr);
-       } 
-       else{
-          console.log("sorry");
-        }
+      if (tempAr[index].lId === lId) {
+        tempAr[index] = { id: lowerAr[index].id, lId: lowerAr[index].lId, task: lowerAr[index].task, done: !lowerAr[index].done };
+        setlowerAr([...tempAr]);
       }
-      
     }
 
-    useEffect(() => {
-      //Runs only on the first render
-      console.log("update");
-    }, [lowerAr]);
+  }
 
+  const getPercentage = (index) => {
+    var now = dayjs(new Date());
+    let hours = index.due.diff(index.start, 'hours');
+    let hours2 = index.due.diff(now, 'hours');
+    return 100 - Math.round((hours2 / hours) * 100);
+  }
 
   return (
     <>
@@ -186,63 +161,48 @@ function BigTasks() {
       <Draggable bounds={{ left: -50, top: 20, right: 1030, bottom: 370 }} handle=".headNotes">
         <div className='boxBig'>
           <div className='headNotes'>
-            <b className='paddingleft'> Long term Tasks </b>
+            <b className='paddingleft'> Long Term Tasks </b>
             <AssignmentOutlinedIcon></AssignmentOutlinedIcon>
 
           </div>
           <div className='aroundBigTasks'>
             {array.map((index) => {
               return (
-                <div>
+                <div key={index.id}>
                   <div className='bigTask'>
 
                     <div className='bigTaskHeader'>
                       <b>  {index.task} </b>
                       <div className='progressAndDate'>
-                        <b className='date'>{getleftDays(index.duration)}</b>
-                        <CircularProgress variant="determinate" value={77} sx={{ color: 'white' }} thickness={5} size={20} />
+                        <b className='date'>{getleftDays(index.due)}</b>
+                        <CircularProgress variant="determinate" value={getPercentage(index)} sx={{ color: 'white' }} thickness={5} size={20} />
                       </div>
                     </div>
 
-                    <div className='Trennung'></div>
+                    {/* <div className='Trennung'></div> */}
 
                     <div className='aroundLowerTasks'>
                       {lowerAr.map((index2) => {
                         if (index2.id === index.id) {
-                          if (!index2.done) {
-                            return (
-                              <>
-                                <div className='lowerTaskDiv'>
-                                  <div className={index2.done ? 'lowerTaskTextSelected' : 'lowerTaskText'} onClick={() => { changelowerArStatus(index2.lId) }} >
-                                    <b> {index2.task} </b>
-                                  </div>
-                                </div>
 
-                              </>
-                            )
-                          }
-                          else {
-                            return (
-                              <>
-                                <div className='lowerTaskDiv'>
-                                  <div className='lowerTaskTextSelected' onClick={() => { changelowerArStatus(index2.lId) }}>
-                                    <b> {index2.task} </b>
-                                  </div>
+                          return (
+                            <>
+                              <div className='lowerTaskDiv' key={index2.id}>
+                                <div className={index2.done ? 'lowerTaskTextSelected' : 'lowerTaskText'} onClick={() => { changelowerArStatus(index2.lId) }} >
+                                  <b> {index2.task} </b>
                                 </div>
+                              </div>
 
-                              </>)
-                          }
-                        } return null;
+                            </>
+                          )
+                        }
+                        return "";
                       })}
 
                     </div>
-                    <div className='Trennung'></div>
+                    {/* <div className='Trennung'></div> */}
 
-                    <b className='due'>  {index.duration.get('date')}.{index.duration.get('month')}.{index.duration.get('year')} </b>
-
-
-
-
+                    <b className='due'>  {index.due.get('date')}.{index.due.get('month') + 1}.{index.due.get('year')} </b>
 
 
                   </div>
